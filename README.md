@@ -17,7 +17,7 @@ For more details about our team, please refer to below links:
 - [BIFROST - BiFi Staking Protocol](https://github.com/bifrost-platform/BiFi-staking-protocol/blob/main/docs/theori-audit-rev-2.0.pdf)
 - [Bunny - PancakeBunny](https://github.com/PancakeBunny-finance/Bunny/blob/main/audits/bunny_contract_audit.pdf)
 - [Mound - Qubit Finance](https://github.com/PancakeBunny-finance/qubit-finance/blob/edad8634df69b37f0a7ae24732e635f1598e51b6/audits/mound_qubit_audit_rev1.1.pdf)
-- [Ozys Corp - KLAYswap](oklayswap21)
+- [Ozys Corp - KLAYswap]
 
 ## 2022
 
@@ -30,4 +30,4 @@ In 2022, we officially launched our web3 professional team/product, ChainLight. 
 
 ---
 
-[oklayswap21]: https://github.com/KlaySwap/klayswap/blob/master/audit/(Theori)_Ozys-KLAYswap_Final_Report-2021_10_07.pdf
+[Ozys Corp - KLAYswap]: https://github.com/KlaySwap/klayswap/blob/master/audit/(Theori)_Ozys-KLAYswap_Final_Report-2021_10_07.pdf
