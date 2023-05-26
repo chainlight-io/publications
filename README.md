@@ -28,6 +28,11 @@ In 2022, we officially launched our web3 professional team/product, ChainLight. 
 - [MESHswap](https://github.com/meshswap-fi/meshswap/blob/main/audit/%5BTheori%5D_meshswap_audit_rev1.0.pdf)
 - [Hello, We are ChainLight](https://blog.chainlight.io/hello-we-are-chainlight-e4c30952fa4a)
 
+## 2023
+
+- [Klaytn Square Governance Contracts](https://github.com/klaytn/governance-contracts-audit/blob/main/audit/theori_20230428.pdf)
+- [Blur - Blend \[PDF\]](https://drive.google.com/file/d/13rmzXIdy138gxPwiGNH8kk-yob4Bjzll/view) [\[Docs\]](https://docs.blur.foundation/)
+
 ---
 
 [Ozys Corp - KLAYswap]: https://github.com/KlaySwap/klayswap/blob/master/audit/(Theori)_Ozys-KLAYswap_Final_Report-2021_10_07.pdf
