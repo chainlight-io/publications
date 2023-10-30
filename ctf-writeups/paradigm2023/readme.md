@@ -8,10 +8,11 @@
 
 ## [JEOPARDY]
 
-- HOPPING INTO PLACE
+- JUMBLED OTTER PROBLEMS
+- [HOPPING INTO PLACE](./hopping_into_place/readme.md)
 - DODONT
 - DRAGON TYRANT
-- GRAINS OF SAND
+- [GRAINS OF SAND](./grains_of_sand/writeup.md)
 - SKILL BASED GAME
 - DAI++
 - TOKEN LOCKER
