@@ -14,7 +14,7 @@
 - DRAGON TYRANT
 - [GRAINS OF SAND](./grains_of_sand/writeup.md)
 - SKILL BASED GAME
-- DAI++
+- [DAI++](./daipp/writeup.md)
 - TOKEN LOCKER
 - [OVEN](./oven)
 - 100%
@@ -23,6 +23,5 @@
 
 ## [Authored Challenges]
 
-- SUSPICIOUS CHARITY
+- [SUSPICIOUS CHARITY](./suspicious_charity/writeup.md)
 - [ENTERPRISE BLOCKCHAIN](./enterprise_blockchain)
-
