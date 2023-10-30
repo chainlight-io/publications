@@ -10,16 +10,16 @@
 
 - [JUMBLED OTTER PROBLEMS](./jotterp)
 - [HOPPING INTO PLACE](./hopping_into_place/readme.md)
-- DODONT
+- [DODONT](./dodont)
 - DRAGON TYRANT
 - [GRAINS OF SAND](./grains_of_sand/writeup.md)
-- SKILL BASED GAME
+- [SKILL BASED GAME](./skil_based_game)
+- [TOKEN LOCKER](./token_locker)
 - [DAI++](./daipp/writeup.md)
-- TOKEN LOCKER
 - [OVEN](./oven)
-- 100%
+- [100%](./100%)
 - BLACK SHEEP
-- HELLO WORLD
+- [HELLO WORLD](./hellow_world)
 
 ## [Authored Challenges]
 
