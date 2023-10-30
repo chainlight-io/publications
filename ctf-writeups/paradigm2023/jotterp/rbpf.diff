@@ -1,0 +1,173 @@
+diff --git a/src/elf.rs b/src/elf.rs
+index 026607c..5d42067 100644
+--- a/src/elf.rs
++++ b/src/elf.rs
+@@ -671,6 +671,58 @@ impl<C: ContextObject> Executable<C> {
+             elf_bytes.as_slice(),
+         )?;
+ 
++        println!("SBPF Version: {sbpf_version:?}");
++
++        for (key, (name, pc)) in function_registry.map.iter() {
++            let lossy_name = String::from_utf8_lossy(&name);
++            println!(
++                "Function: {:p} - {pc} ({})",
++                key,
++                if name.is_empty() {
++                    "<empty>"
++                } else {
++                    lossy_name.as_ref()
++                }
++            )
++        }
++
++        for (key, (name, _)) in loader.get_function_registry().map.iter() {
++            let lossy_name = String::from_utf8_lossy(&name);
++            println!(
++                "System Function: {:p} - {}",
++                key,
++                if name.is_empty() {
++                    "<empty>"
++                } else {
++                    lossy_name.as_ref()
++                }
++            )
++        }
++
++        let (_offset, ro_data) = match &ro_section {
++            Section::Owned(offset, data) => (*offset, data.as_slice()),
++            Section::Borrowed(offset, byte_range) => (*offset, &bytes[byte_range.clone()]),
++        };
++
++        // Hexdump `ro_data` with ascii
++        let mut hexdump = String::new();
++        for (i, chunk) in ro_data.chunks(16).enumerate() {
++            hexdump += &format!("{:08x}  ", i * 16);
++            for byte in chunk {
++                hexdump += &format!("{:02x} ", byte);
++            }
++            hexdump += "  ";
++            for c in chunk {
++                if c.is_ascii_graphic() {
++                    hexdump.push(*c as char);
++                } else {
++                    hexdump.push(' ');
++                }
++            }
++            hexdump.push('\n');
++        }
++        // print!("{hexdump}");
++
+         Ok(Self {
+             elf_bytes,
+             sbpf_version,
+diff --git a/src/interpreter.rs b/src/interpreter.rs
+index 8f5ae85..84ede9a 100644
+--- a/src/interpreter.rs
++++ b/src/interpreter.rs
+@@ -176,6 +176,15 @@ impl<'a, 'b, C: ContextObject> Interpreter<'a, 'b, C> {
+         true
+     }
+ 
++    fn dump_state(&self, title: &str) {
++        println!("=== {title:^30} ===");
++        println!("  pc = {}", self.pc);
++        for i in 0..11 {
++            println!("  r{} = 0x{:x}", i, self.reg[i]);
++        }
++        println!("======================================");
++    }
++
+     /// Advances the interpreter state by one instruction
+     ///
+     /// Returns false if the program terminated or threw an error.
+@@ -183,6 +192,21 @@ impl<'a, 'b, C: ContextObject> Interpreter<'a, 'b, C> {
+     pub fn step(&mut self) -> bool {
+         let config = &self.executable.get_config();
+ 
++        let trace_points = [
++            (102, "chall::process_instruction"),
++            (226, "entrypoint"),
++            (48, "chall::process"),
++            (86, "chall::write"),
++            (124, "chall::call"),
++            (885, "(invoke_signed entry)"),
++            (889, "(invoke_signed call)"),
++        ];
++        const TEXT_OFFSET: usize = 36;
++
++        if let Some((_, name)) = trace_points.iter().find(|(offset, _)| self.pc == *offset - TEXT_OFFSET) {
++            self.dump_state(name);
++        }
++
+         let mut instruction_width = 1;
+         self.due_insn_count += 1;
+         let pc = self.pc;
+@@ -481,6 +505,8 @@ impl<'a, 'b, C: ContextObject> Interpreter<'a, 'b, C> {
+                 if target_pc < self.program_vm_addr {
+                     throw_error!(self, EbpfError::CallOutsideTextSegment(pc + ebpf::ELF_INSN_DUMP_OFFSET, target_pc / ebpf::INSN_SIZE as u64 * ebpf::INSN_SIZE as u64));
+                 }
++                println!("Call to {target_pc:x}");
++                // println!("VM addr {:x}", self.program_vm_addr);
+                 self.pc = (target_pc - self.program_vm_addr) as usize / ebpf::INSN_SIZE;
+                 if !self.check_pc(pc) {
+                     return false;
+@@ -505,6 +531,22 @@ impl<'a, 'b, C: ContextObject> Interpreter<'a, 'b, C> {
+                     if let Some((_function_name, function)) = self.executable.get_loader().get_function_registry().lookup_by_key(insn.imm as u32) {
+                         resolved = true;
+ 
++                        // self.dump_state("Before external call");
++                        // for i in 0.. {
++                        //     let vaddr = 0x300000000 + 8 * i;
++                        //     match self.vm.memory_mapping.load::<u64>(vaddr, self.pc) {
++                        //         crate::vm::StableResult::Ok(val) => println!("{vaddr:x}: {val:x}"),
++                        //         crate::vm::StableResult::Err(_) => break,
++                        //     }
++                        // }
++                        // for i in 0.. {
++                        //     let vaddr = 0x400000000 + 8 * i;
++                        //     match self.vm.memory_mapping.load::<u64>(vaddr, self.pc) {
++                        //         crate::vm::StableResult::Ok(val) => println!("{vaddr:x}: {val:x}"),
++                        //         crate::vm::StableResult::Err(_) => break,
++                        //     }
++                        // }
++
+                         if config.enable_instruction_meter {
+                             self.vm.context_object_pointer.consume(self.due_insn_count);
+                         }
+@@ -526,6 +568,22 @@ impl<'a, 'b, C: ContextObject> Interpreter<'a, 'b, C> {
+                         if config.enable_instruction_meter {
+                             self.vm.previous_instruction_meter = self.vm.context_object_pointer.get_remaining();
+                         }
++
++                        // self.dump_state("After external call");
++                        // for i in 0.. {
++                        //     let vaddr = 0x300000000 + 8 * i;
++                        //     match self.vm.memory_mapping.load::<u64>(vaddr, self.pc) {
++                        //         crate::vm::StableResult::Ok(val) => println!("{vaddr:x}: {val:x}"),
++                        //         crate::vm::StableResult::Err(_) => break,
++                        //     }
++                        // }
++                        // for i in 0.. {
++                        //     let vaddr = 0x400000000 + 8 * i;
++                        //     match self.vm.memory_mapping.load::<u64>(vaddr, self.pc) {
++                        //         crate::vm::StableResult::Ok(val) => println!("{vaddr:x}: {val:x}"),
++                        //         crate::vm::StableResult::Err(_) => break,
++                        //     }
++                        // }
+                     }
+                 }
+ 
+diff --git a/src/memory_region.rs b/src/memory_region.rs
+index 0f49338..d41b2ca 100644
+--- a/src/memory_region.rs
++++ b/src/memory_region.rs
+@@ -904,6 +904,8 @@ fn generate_access_violation(
+     len: u64,
+     pc: usize,
+ ) -> ProgramResult {
++    // eprintln!("{}", std::backtrace::Backtrace::force_capture());
++
+     let stack_frame = (vm_addr as i64)
+         .saturating_sub(ebpf::MM_STACK_START as i64)
+         .checked_div(config.stack_frame_size as i64)
