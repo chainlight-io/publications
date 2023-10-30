@@ -1,0 +1,343 @@
+#define macro AIRDROP_ETH() = takes (0) returns (0) {
+    push0
+    push0
+    push0
+    push0
+    [ETH_AMOUNT0]
+    [ETH_RECIPIENT0]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT1]
+    [ETH_RECIPIENT1]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT2]
+    [ETH_RECIPIENT2]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT3]
+    [ETH_RECIPIENT3]
+    gas
+    call
+    
+    push0
+    push0
+    push0
+    [ETH_AMOUNT4]
+    [ETH_RECIPIENT4]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT5]
+    [ETH_RECIPIENT5]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT6]
+    [ETH_RECIPIENT6]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT7]
+    [ETH_RECIPIENT7]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT8]
+    [ETH_RECIPIENT8]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT9]
+    [ETH_RECIPIENT9]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT10]
+    [ETH_RECIPIENT10]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT11]
+    [ETH_RECIPIENT11]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT12]
+    [ETH_RECIPIENT12]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT13]
+    [ETH_RECIPIENT13]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT14]
+    [ETH_RECIPIENT14]
+    gas
+    call
+
+    push0
+    push0
+    push0
+    [ETH_AMOUNT15]
+    [ETH_RECIPIENT15]
+    gas
+    call
+}
+
+#define macro AIRDROP_ERC20_INNER() = takes (0) returns (0) {
+    msize
+    push0
+    push0
+    [ERC20_TOKEN]
+    gas
+    call
+}
+
+#define macro AIRDROP_ERC20() = takes (0) returns (0) {
+    0x23b872dd00000000000000000000000000000000000000000000000000000000 0x0 mstore
+    caller 0x04 mstore
+    
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+
+    [ERC20_RECIPIENT0] 0x24 mstore
+    [ERC20_AMOUNT0] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT1] 0x24 mstore
+    [ERC20_AMOUNT1] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT2] 0x24 mstore
+    [ERC20_AMOUNT2] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT3] 0x24 mstore
+    [ERC20_AMOUNT3] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT4] 0x24 mstore
+    [ERC20_AMOUNT4] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT5] 0x24 mstore
+    [ERC20_AMOUNT5] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT6] 0x24 mstore
+    [ERC20_AMOUNT6] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT7] 0x24 mstore
+    [ERC20_AMOUNT7] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT8] 0x24 mstore
+    [ERC20_AMOUNT8] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT9] 0x24 mstore
+    [ERC20_AMOUNT9] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT10] 0x24 mstore
+    [ERC20_AMOUNT10] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT11] 0x24 mstore
+    [ERC20_AMOUNT11] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT12] 0x24 mstore
+    [ERC20_AMOUNT12] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT13] 0x24 mstore
+    [ERC20_AMOUNT13] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT14] 0x24 mstore
+    [ERC20_AMOUNT14] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+
+    [ERC20_RECIPIENT15] 0x24 mstore
+    [ERC20_AMOUNT15] 0x44 mstore
+    AIRDROP_ERC20_INNER()
+}
+
+#define macro AIRDROP_ERC721_INNER() = takes (0) returns (0) {
+    msize
+    push0
+    push0
+    [ERC721_TOKEN]
+    gas
+    call
+}
+
+#define macro AIRDROP_ERC721() = takes (0) returns (0) {
+    0x23b872dd00000000000000000000000000000000000000000000000000000000 push0 mstore
+    caller 0x04 mstore
+
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+    push0
+
+    [ERC721_RECIPIENT0] 0x24 mstore
+    [ERC721_AMOUNT0] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT1] 0x24 mstore
+    [ERC721_AMOUNT1] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT2] 0x24 mstore
+    [ERC721_AMOUNT2] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT3] 0x24 mstore
+    [ERC721_AMOUNT3] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT4] 0x24 mstore
+    [ERC721_AMOUNT4] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT5] 0x24 mstore
+    [ERC721_AMOUNT5] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT6] 0x24 mstore
+    [ERC721_AMOUNT6] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT7] 0x24 mstore
+    [ERC721_AMOUNT7] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT8] 0x24 mstore
+    [ERC721_AMOUNT8] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT9] 0x24 mstore
+    [ERC721_AMOUNT9] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT10] 0x24 mstore
+    [ERC721_AMOUNT10] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT11] 0x24 mstore
+    [ERC721_AMOUNT11] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT12] 0x24 mstore
+    [ERC721_AMOUNT12] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT13] 0x24 mstore
+    [ERC721_AMOUNT13] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT14] 0x24 mstore
+    [ERC721_AMOUNT14] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+
+    [ERC721_RECIPIENT15] 0x24 mstore
+    [ERC721_AMOUNT15] 0x44 mstore
+    AIRDROP_ERC721_INNER()
+}
+
+#define macro MAIN() = takes (0) returns (0) {
+    // Identify which function is being called.
+    calldatasize
+    dup1 0x484 eq airdropETH jumpi
+    0x4c4 eq airdropERC20 jumpi
+    
+    airdropERC721:
+        AIRDROP_ERC721()
+        end jump
+
+    airdropETH:
+        AIRDROP_ETH()
+        end jump
+
+    airdropERC20:
+        AIRDROP_ERC20()
+        end jump
+
+    end:
+}
