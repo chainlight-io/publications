@@ -11,7 +11,7 @@
 - [JUMBLED OTTER PROBLEMS](./jotterp)
 - [HOPPING INTO PLACE](./hopping_into_place/readme.md)
 - [DODONT](./dodont)
-- DRAGON TYRANT
+- [DRAGON TYRANT](./dragon_tyrant/writeup.md)
 - [GRAINS OF SAND](./grains_of_sand/writeup.md)
 - [SKILL BASED GAME](./skil_based_game)
 - [TOKEN LOCKER](./token_locker)
