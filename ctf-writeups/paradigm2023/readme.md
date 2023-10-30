@@ -3,7 +3,7 @@
 ## [KOTH]
 
 - DROPPER
-- FREE REAL ESTATE
+- [FREE REAL ESTATE](./free_real_estate/)
 - [COSMIC RADIATION](./cosmic_radiation)
 
 ## [JEOPARDY]
