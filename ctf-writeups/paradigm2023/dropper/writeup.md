@@ -31,3 +31,7 @@ First, observe that the `AirdropLike` arguments are entirely deterministic and c
 Second, notice that the calldata size of each `AirdropLike` method is different, which allows the method dispatcher to branch entirely on `CALLDATASIZE`.
 
 The above properties enable us to avoid using the `CALLDATALOAD` opcode.  Together with loop unrolling, this results in a significant gas cost savings.
+
+Next, since we are operating in a private fork network, we can carefully set up the base fee and transaction gas price to replace the usage of the constants 0x24 and 0x44, saving 1 gas for each use of those.
+
+A final optimization comes from performing the final ETH airdrop via a `selfdestruct` rather than a `call`.

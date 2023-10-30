@@ -132,6 +132,7 @@ contract Solve is CommonBase {
         }
 
         bytes memory code = vm.parseBytes(vm.toString(vm.ffi(inputs)));
+        vm.fee(0x24);
         vm.txGasPrice(0x44);
         new Solver(address(chal), code);
 
