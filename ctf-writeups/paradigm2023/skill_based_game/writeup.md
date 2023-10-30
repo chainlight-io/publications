@@ -1,3 +1,5 @@
+# Skill based game
+
 This challenge is to win a blackjack game and take all the ETH. 
 
 `deal()` generates a random number with `block.number` and `block.timestamp`, which are on-chain data. It is well-known that random number generated only with on-chain data is vulnerable, since it is deterministic.

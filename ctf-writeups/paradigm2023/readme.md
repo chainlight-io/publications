@@ -19,7 +19,7 @@
 - [OVEN](./oven)
 - [100%](./100%)
 - BLACK SHEEP
-- [HELLO WORLD](./hellow_world/)
+- [HELLO WORLD](./hellow_world)
 
 ## [Authored Challenges]
 

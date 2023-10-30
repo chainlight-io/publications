@@ -1,6 +1,6 @@
 # dodont
 
-This challenge is to steal all the WETH that goes into the DVM contract. 
+This challenge is to steal all the WETH that goes into the `DVM` contract. 
 
 The vulnerability existed in `init` function, which had no access control, and could be called multiple times. 
 
