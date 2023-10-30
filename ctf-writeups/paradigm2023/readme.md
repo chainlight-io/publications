@@ -24,5 +24,5 @@
 ## [Authored Challenges]
 
 - SUSPICIOUS CHARITY
-- ENTERPRISE BLOCKCHAIN
+- [ENTERPRISE BLOCKCHAIN](./enterprise_blockchain)
 
