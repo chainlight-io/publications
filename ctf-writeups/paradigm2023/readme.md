@@ -18,7 +18,7 @@
 - [DAI++](./daipp/writeup.md)
 - [OVEN](./oven)
 - [100%](./100%)
-- [BLACK SHEEP[(./black_sheep)
+- [BLACK SHEEP](./black_sheep)
 - [HELLO WORLD](./hellow_world)
 
 ## [Authored Challenges]
