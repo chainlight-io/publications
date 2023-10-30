@@ -1,7 +1,7 @@
 # Suspicious charity
 
 The abi decoder `ethabi` used by `cast`, `chisel` decodes `string` as UTF-8 string.
-To prevent panic during the decoding, it intentionally uses UTF-8 lossy decoder, that decodes
+To prevent panic during the decoding, it [intentionally uses UTF-8 lossy decoder](https://github.com/rust-ethereum/ethabi/blob/b1710adc18f5b771d2d2519c87248b1ba9430778/ethabi/src/decoder.rs#L166-L170), that decodes
 invalid UTF-8 chracters into a fixed code point: 0xfeff.
 
 Therefore, the pair name `0x80` and `0x81` returned by `PairName` contract is decoded as the same string.
