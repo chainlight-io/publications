@@ -14,8 +14,8 @@
 - DRAGON TYRANT
 - [GRAINS OF SAND](./grains_of_sand/writeup.md)
 - [SKILL BASED GAME](./skil_based_game)
-- DAI++
 - [TOKEN LOCKER](./token_locker)
+- [DAI++](./daipp/writeup.md)
 - [OVEN](./oven)
 - [100%](./100%)
 - BLACK SHEEP
@@ -23,6 +23,5 @@
 
 ## [Authored Challenges]
 
-- SUSPICIOUS CHARITY
+- [SUSPICIOUS CHARITY](./suspicious_charity/writeup.md)
 - [ENTERPRISE BLOCKCHAIN](./enterprise_blockchain)
-
