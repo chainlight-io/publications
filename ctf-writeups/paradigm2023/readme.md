@@ -2,7 +2,7 @@
 
 ## [KOTH]
 
-- DROPPER
+- [DROPPER](./dropper)
 - [FREE REAL ESTATE](./free_real_estate/)
 - [COSMIC RADIATION](./cosmic_radiation)
 
@@ -18,7 +18,7 @@
 - [DAI++](./daipp/writeup.md)
 - [OVEN](./oven)
 - [100%](./100%)
-- BLACK SHEEP
+- [BLACK SHEEP[(./black_sheep)
 - [HELLO WORLD](./hellow_world)
 
 ## [Authored Challenges]
