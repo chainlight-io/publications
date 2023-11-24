@@ -1,0 +1,41 @@
+diff --git a/profanity.cl b/profanity.cl
+index fe187fd..ddd865c 100644
+--- a/profanity.cl
++++ b/profanity.cl
+@@ -768,18 +768,35 @@ __kernel void profanity_score_range(__global mp_number * const pInverse, __globa
+        __global const uchar * const hash = pInverse[id].d;
+        int score = 0;
+
++    int c[16];
++    for (int i = 0; i < 16; i++) {
++        c[i] = 0;
++    }
++
++    score = 40;
++
+        for (int i = 0; i < 20; ++i) {
+                const uchar first = (hash[i] & 0xF0) >> 4;
+                const uchar second = (hash[i] & 0x0F);
++        c[first]++;
++        c[second]++;
++       }
+
+-               if (first >= data1[0] && first <= data2[0]) {
+-                       ++score;
++    {
++        if (((c[0xa] + c[0xe]) & 1) != 0) score = 0;
++        if (((c[0xb] + c[0xc] + c[0xd] + c[0xf]) % 3) != 0) score = 0;
+     }
+
+-               if (second >= data1[0] && second <= data2[0]) {
+-                       ++score;
++    {
++        int _sum = 0;
++        for (int i = 1; i < 10; i++) {
++            _sum += c[i] * i;
+         }
++        if (_sum != 25 + 35) {
++            score = 0;
+         }
++    }
++
