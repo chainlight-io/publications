@@ -12,7 +12,7 @@ The existing vulnerabilities in the challenge are
 3. In `uniswapV2Call()`, the token address passed as `data` may not be the same as the token of the called pair.
 4. If you deposit a token different from the initial token specified by `_createUser()` in `deposit()`, the share of the initial tokens pair will be increased. (optional)
 
-In addition to the minimum requirement, vulnerability #4 can steal additional `curtaUSD' and `curtaStUSD' from `owner', with the amount of `1 ether - MINIMUM_LIQUIDITY'.
+In addition to the minimum requirement, vulnerability #4 can steal additional `curtaUSD` and `curtaStUSD` from `owner`, with the amount of `1 ether - MINIMUM_LIQUIDITY`.
 
 The attack scenario is as follows:
 
