@@ -9,12 +9,18 @@ For more details about our team, please refer to below links:
 - [Hello, We are ChainLight](https://blog.chainlight.io/hello-we-are-chainlight-e4c30952fa4a)
 - [https://chainlight.io/](https://chainlight.io/)
 
-> Last updated: 2023-10-30 (YYYY-MM-DD)
+> Last updated: 2023-12-01 (YYYY-MM-DD)
 
 ## 2023
 
 - [Klaytn Square Governance Contracts](https://github.com/klaytn/governance-contracts-audit/blob/main/audit/theori_20230428.pdf)
 - [Blur - Blend \[PDF\]](https://drive.google.com/file/d/13rmzXIdy138gxPwiGNH8kk-yob4Bjzll/view) [\[Docs\]](https://docs.blur.foundation/)
+- [Blur - Exchange V2](https://drive.google.com/file/d/1FAryO7HfklV0ldOGfS9xSLKhaX65lG1I/view?usp=sharing)
+- [Kroma](https://drive.google.com/file/d/13TUxZ9KPyvUXNZGddALcJLin-xmp_Fkj/view)
+- [TerraSwap](https://terraswap.io/wp-content/uploads/2023/07/terraswap-audit-report.pdf)
+- [TerraSwap Classic](https://terraswap.io/wp-content/uploads/2023/06/terraswap-classic-20230620.pdf)
+- [Dezswap](https://github.com/dezswap/dezswap-contracts/blob/main/audits/chainlight/20230302.pdf)
+- [STARFLEIT](https://assets-global.website-files.com/62b54b91d56058dfa989bdfa/646dbf354863c32f4bb63872_Starfleit(1.1).pdf)
 
 ## 2022
 
