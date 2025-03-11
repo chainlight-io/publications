@@ -13,7 +13,7 @@ For more details about our team, please refer to below links:
 
 ## 2025
 
-- [Emblem Vault](./audit-reports/\[ChainLight\] Emblem Vault Security Audit v1.1.pdf)
+- [Emblem Vault](audit-reports/[ChainLight]%20Emblem%20Vault%20Security%20Audit%20v1.1.pdf)
 
 ## 2024
 
