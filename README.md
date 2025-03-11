@@ -9,7 +9,15 @@ For more details about our team, please refer to below links:
 - [Hello, We are ChainLight](https://blog.chainlight.io/hello-we-are-chainlight-e4c30952fa4a)
 - [https://chainlight.io/](https://chainlight.io/)
 
-> Last updated: 2023-12-01 (YYYY-MM-DD)
+> Last updated: 2025-03-11 (YYYY-MM-DD)
+
+## 2025
+
+- [Emblem Vault](./audit-reports/[ChainLight] Emblem Vault Security Audit v1.1.pdf)
+
+## 2024
+
+- (Updating)
 
 ## 2023
 
